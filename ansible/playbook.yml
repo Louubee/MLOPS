@@ -1,0 +1,17 @@
+- name: Configure MLops server
+  hosts: all
+  become: true
+  tasks:
+    - name: Installer Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Démarrer Docker
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Déployer l'application
+      command: docker run -d -p 5000:5000 mlops-project

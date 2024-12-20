@@ -1,0 +1,4 @@
+terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/5.82.1/windows_amd64/terraform-provider-aws_v5.82.1_x5.exe
+*.exe
+terraform/.terraform/
+.aws/
