@@ -23,7 +23,7 @@ Ce projet met en place une chaîne complète MLOps en intégrant des pratiques D
    Après la connexion à l'instance EC2, MLflow a été installé pour gérer et suivre les expérimentations de Machine Learning. Les dépendances nécessaires à l'exécution des modèles ML (comme `scikit-learn`, `tensorflow`, etc.) ont été installées, et un script Python `train.py` a été téléchargé. Ce script contient le code pour entraîner un modèle de Machine Learning et est exécuté sur l'instance pour tester l'intégration du flux de travail.
 
 4. **Suivi des expérimentations avec MLflow** :  
-   Le serveur MLflow a été lancé sur l'instance EC2, accessible via le port **5000** à l'adresse **`http://<PUBLIC_IP>:5000`**. MLflow a été configuré pour enregistrer et visualiser les paramètres, les métriques, et les artefacts des expérimentations de modèles. Cette étape permet de suivre facilement l'évolution des modèles, la comparaison des résultats et l'optimisation des hyperparamètres.
+   Le serveur MLflow a été lancé sur l'instance EC2, accessible via le port **5000** à l'adresse **`http://<PUBLIC_IP>:5000`**. MLflow a été configuré pour enregistrer et visualiser les paramètres, les métriques, et les artefacts des expérimentations de modèles. Cette étape permet de suivre facilement l'évolution des modèles, la comparaison des résultats et l'optimisation des hyperparamètres. Cependant, ce paramètres doit bien être modifié manuellement dans "AWS -> Groupe de Sécurité" 
 
 5. **Mise en place de CI/CD avec GitHub Actions** :  
    L'automatisation des tests et des déploiements a été mise en place avec **GitHub Actions**. Un workflow CI/CD a été configuré pour automatiser les étapes suivantes :  
@@ -31,7 +31,8 @@ Ce projet met en place une chaîne complète MLOps en intégrant des pratiques D
    - En cas de succès, le workflow déploie le modèle et les scripts d'entraînement dans l'instance EC2 via SSH.
    Ce processus assure une intégration continue et un déploiement rapide à chaque mise à jour du code, réduisant ainsi le temps entre le développement et la mise en production.
 
-6. **Surveillance et Monitoring avec Prometheus et Grafana** :  
+
+6. **Surveillance et Monitoring avec Prometheus et Grafana (Réalisation peu optimale)** :  
    Un système de **monitoring** a été mis en place pour suivre les performances de l'infrastructure et des modèles. **Prometheus** a été configuré pour collecter des métriques concernant l'utilisation des ressources de l'instance EC2, tandis que **Grafana** a été utilisé pour créer des dashboards interactifs permettant de visualiser ces métriques en temps réel. Cela permet de suivre la santé de l'environnement de production, de détecter les anomalies et d'optimiser les performances des modèles ML déployés.
 
 ## Conclusion
